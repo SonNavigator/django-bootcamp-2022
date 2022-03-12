@@ -12,7 +12,7 @@ git clone https://github.com/SonNavigator/django-bootcamp-2022.git
 
 ##### 1.2 ไปที่ working directory  (mysite)
 ```bash
-cd mysite
+cd django-bootcamp-2022
 ```
 
 ##### 1.3 สร้าง virtual environment
