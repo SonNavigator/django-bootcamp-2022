@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% block title %}<title>Home | Mywebsite.com</title>{% endblock %}
+{% block content %}
+<div class="container">
+  {% for post in all_posts %}
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text">This is short description</p>
+      <a href="posts/{{ post.id }}" class="btn btn-primary">See more</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

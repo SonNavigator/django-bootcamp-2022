@@ -4,31 +4,12 @@ from .models import Post
 
 
 def index(request):
-    # Table.objects.method()
     # Query all posts
     all_posts = Post.objects.all()
-    name = "Top"
-    return render(request, 'blog/index.html', {
-        'all_posts': all_posts, 
-        'name': name
-        }
-    )
+    return render(request, 'blog/home.html', {'all_posts': all_posts})
 
 
-def about(request):
-    return render(request, 'blog/about.html')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def single_post(request, id):
+    # Query one post
+    single_post = Post.objects.get(pk=id)
+    return render(request, 'blog/single-post.html', {'single_post': single_post})
