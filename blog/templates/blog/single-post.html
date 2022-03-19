@@ -3,6 +3,9 @@
 {% block content %}
 <div class="container">
     <h1>{{ single_post.title }}</h1>
-    <p>{{ single_post.body }}</p>
+    <p>Created on: {{ single_post.date_created }}</p>
+    <p>Last update: {{ single_post.date_updated }}</p>
+    <p>Written by: {{ single_post.author.name }}</p>
+    <p>{{ single_post.body | safe }}</p>
 </div>
 {% endblock %}
