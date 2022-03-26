@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, single_post, contact
+from .views import index, single_post, contact, search
 
 
 urlpatterns = [
@@ -7,5 +7,6 @@ urlpatterns = [
     path("", index, name="home"),
     path("posts/<int:id>", single_post),
     path("contact-us", contact, name="contact"),
+    path("search", search, name="search")
 
 ]

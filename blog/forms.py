@@ -12,3 +12,4 @@ class ContactForm(forms.ModelForm):
             'detail'
         ]
 
+

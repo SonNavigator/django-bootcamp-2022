@@ -1,10 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Post
-# from .forms import ContactForm
 from .forms import ContactForm
+from django.db.models import Q
 
-print(ContactForm)
 
 def index(request):
     # Query all posts
@@ -19,4 +18,31 @@ def single_post(request, id):
 
 
 def contact(request):
-    return render(request, 'blog/contact.html')
+    # check the incoming method
+    if request.method == "POST":
+        # print("Okay this is POST")
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Save into DB
+            form.save()
+            # Redirect to home page
+            return redirect('/')
+
+    else:
+        # print("This is GET")
+        form = ContactForm()
+
+    return render(request, 'blog/contact.html', {'form': form})
+
+
+def search(request):
+    search_post = request.GET.get('q')
+    if search_post:
+        posts = Post.objects.filter(Q(title__icontains=search_post))
+    else:
+        return redirect('/')
+        
+    return render(request, 'blog/search.html', {'posts': posts})
+
+
+
