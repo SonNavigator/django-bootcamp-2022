@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',  # Our app
-    'django_summernote'  # Django Summernote Editor
+    'django_summernote',  # Django Summernote Editor
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [

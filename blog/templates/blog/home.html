@@ -4,15 +4,19 @@
 <div class="container">
   <br>
   <h1>Mywebsite - Python Tutorials</h1><br>
-  {% for post in all_posts %}
-  <div class="card" style="width: 18rem;">
-    <img src="{{ post.featured_pic.url }}" class="card-img-top" alt="{{ post.title }}">
-    <div class="card-body">
-      <h5 class="card-title">{{ post.title }}</h5>
-      <p class="card-text">{{ post.short_description }}</p>
-      <a href="posts/{{ post.id }}" class="btn btn-primary">See more</a>
+  <div class="row">
+    {% for post in all_posts %}
+    <div class="col-sm-4">
+      <div class="card" style="width: 18rem;">
+        <img src="{{ post.featured_pic.url }}" class="card-img-top" alt="{{ post.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <p class="card-text">{{ post.short_description }}</p>
+          <a href="posts/{{ post.id }}" class="btn btn-primary">See more</a>
+        </div>
+      </div><br>
     </div>
-  </div><br>
-  {% endfor %}
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
